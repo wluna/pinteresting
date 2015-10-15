@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<%= javascript_include_tag :all %>
+
 <html>
 <head>
   <title>Pinteresting</title>
@@ -8,9 +11,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<%= link_to "home", root_path%>
-<%= link_to "about", about_path%>
+
 <%= render "layouts/header" %>
+<div class="container">
+	<% flash.each do |name, msg| %>
+		<%= content_tag(:div, msg, class: "alert alert-info") %>
+	<% end %>
 	<%= yield %>
 </div>
 </body>
